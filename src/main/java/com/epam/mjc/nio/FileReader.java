@@ -3,8 +3,6 @@ package com.epam.mjc.nio;
 import java.io.*;
 import java.nio.*;
 import java.nio.channels.FileChannel;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 
 public class FileReader {
@@ -30,12 +28,11 @@ public class FileReader {
             exception.printStackTrace();
         }
 
-        String regex[] = collector.split(System.getProperty("line.separator"));
-        String name = regex[0].replace("Name: ", "");
-        String age = regex[1].replace("Age: ", "");
-        String email = regex[2].replace("Email: ", "");
-        String phone = regex[3].replace("Phone: ", "");
-
+        String separate[] = collector.split(System.getProperty("line.separator"));
+        String name = separate[0].replace("Name: ", "");
+        String age = separate[1].replace("Age: ", "");
+        String email = separate[2].replace("Email: ", "");
+        String phone = separate[3].replace("Phone: ", "");
         return new Profile(name, Integer.parseInt(age), email, Long.parseLong(phone));
     }
 }
